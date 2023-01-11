@@ -1,6 +1,5 @@
 import React, { useRef } from "react";
 import { useStackState } from "rooks";
-import './testing.css';
   
 const CheckStack = () => {
     const inputsToStack = useRef(5);
