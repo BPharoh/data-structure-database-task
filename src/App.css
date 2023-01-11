@@ -1,1 +1,92 @@
 
+.taskContainer {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding: 10px;
+    margin: 10px;
+    }
+  
+    .page_title{
+      text-align: center;
+      color: cornflowerblue;
+      font-weight: lighter;
+      font-style: oblique;
+    }
+  
+  
+  
+   h1, h2 {
+    text-align: center;
+  }
+  
+  p {
+    text-align: center;
+  }
+  
+  
+  
+  ul {
+    display: flex;
+    justify-content: center;
+  }
+  
+  li {
+    list-style: none;
+    margin: 10px;
+  }
+  
+  a {
+    text-decoration: none;
+  }
+  
+  /* a:active, a:focus{
+    color: yellow;
+  } */
+  
+  a.active {
+    color: yellow;
+  }
+  
+
+  .taskStyle {
+    position: relative;
+    padding: 2rem;
+    margin: 0, auto;
+    height: 100px;
+    margin: 2rem;
+    border-radius: 30%;
+    background-color: blue;
+    border: 1px solid;
+  }
+
+  .taskStyle.bubble{
+    background-color: rgb(0, 255, 208);
+  }
+  .taskStyle.stack{
+    background-color: rgb(255, 140, 0);
+  }
+  .taskStyle.queue{
+    background-color: rgb(255, 0, 0);
+  }
+  
+.checker {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+  
+
+
+  .search_style {
+    text-align: center;
+  }
+
+  .search_style input[type=search] {
+    text-align: center;
+    border-radius: 5px;
+    padding: 0.5rem;
+    width: 150px;
+    
+  }

@@ -1,17 +1,10 @@
-import React from "react";
-import { useState} from "react";
+import React, { useState} from "react";
 
-
-
-export default 
-
-function Bubblesort() {
+const Bubblesort = () => {
   const [state, setState] = useState({
     inputNumber: [],
     resultNum: [],
   });
-
-  
 
   const updatedinputNumber = (e) => {
     
@@ -29,29 +22,26 @@ function Bubblesort() {
           flag = true;
 
         }
-        console.log(state.resultNum)
       }
     }
 
     setState({ ...state, resultNum: newArr });
   };
     return (
-      <div className="container"><header><h1>Bubble Sort</h1></header><div className="app"><div className="inputs"><div><input
-                  type="number"
-                  id="input_number"
-                  onChange={updatedinputNumber}
-                  placeholder="Input number 0-9"
-                /></div><button
-                type="submit"
-                id="submit_check"
-                onClick={() => {
-                  bubbleSort(state.inputNumber);
-                }}>
-                Check
-              </button><div className="result_area"><h3>
-                Your Text: <span>{state.inputNumber}</span>{" "}
-              </h3><h2>Result:</h2><h3 className="result_text"><span>{state.resultNum}</span></h3></div></div></div></div>
+    <div>
+        <h1>Bubble Sort</h1>
+        <div className="checker">
+          <input type="number" onChange={updatedinputNumber} placeholder="Input number 0-9"/>
+          <button type="submit" onClick={() => {bubbleSort(state.inputNumber) }}>Sort</button>
+        </div>
+        <div>
+          <h2>Input: <span>{state.inputNumber}</span>{" "}</h2>
+          <h2>Sorted Input: <span>{state.resultNum}</span></h2>
+        </div>
+    </div>
     );
   }
+
+  export default Bubblesort;
 
 
