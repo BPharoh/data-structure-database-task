@@ -1,13 +1,16 @@
 import React, { useState} from "react";
 
+
+
 const Bubblesort = () => {
   const [state, setState] = useState({
     inputNumber: [],
     resultNum: [],
   });
 
+  
+
   const updatedinputNumber = (e) => {
-    
     let newInputArray = e.target.value.split("");
     setState({ ...state, inputNumber: newInputArray });
   };
@@ -22,23 +25,28 @@ const Bubblesort = () => {
           flag = true;
 
         }
+        console.log(state.resultNum)
       }
     }
 
     setState({ ...state, resultNum: newArr });
   };
     return (
-    <div>
+      <div>
         <h1>Bubble Sort</h1>
         <div className="checker">
-          <input type="number" onChange={updatedinputNumber} placeholder="Input number 0-9"/>
-          <button type="submit" onClick={() => {bubbleSort(state.inputNumber) }}>Sort</button>
+          <input type="number"
+                  id="input_number"
+                  onChange={updatedinputNumber}
+                  placeholder="Input number 0-9"
+                />
+         <button type="submit" id="submit_check" onClick={() => {bubbleSort(state.inputNumber) }}>Sort</button>
         </div>
         <div>
-          <h2>Input: <span>{state.inputNumber}</span>{" "}</h2>
-          <h2>Sorted Input: <span>{state.resultNum}</span></h2>
-        </div>
-    </div>
+          <h2>Inputed Number: <span>{state.inputNumber}</span>{" "}</h2>
+          <h2>Sorted Result: <span>{state.resultNum}</span></h2>
+              </div>
+              </div>
     );
   }
 

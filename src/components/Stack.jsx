@@ -1,67 +1,35 @@
 import React, { useRef } from "react";
 import { useStackState } from "rooks";
+import './testing.css';
   
-export default function App() {
-    const numberToPushRef = useRef(3);
+const CheckStack = () => {
+    const inputsToStack = useRef(5);
     const [list, { push, pop, peek, length }, 
-        listInReverse] = useStackState([1, 2, 3]);
+        listInReverse] = useStackState([1, 2, 3, 4, 5]);
   
-    function addToStack() {
-        numberToPushRef.current = numberToPushRef.current + 1;
-        push(numberToPushRef.current);
+    const addToStack = () =>  {
+        inputsToStack.current = inputsToStack.current + 1;
+        push(inputsToStack.current);
     }
   
     return (
         <>
-            <h1 style={{ color: 'blue', margin: '20px' }}>
-                Stack</h1>
-            <div style={{
-                display: 'block',
-                fontSize: '20px',
-                margin: '20px'
-            }}>
+            <h1>Stack</h1>
+            <div className="stackContainer">
                 {listInReverse.map((item) => {
-                    return <div style={{
-                        width: '30px',
-                        height: '30px',
-                        background: '#a3fc9d',
-                        borderRadius: '5px',
-                        margin: '10px',
-                        textAlign: 'center'
-                    }}
-                        key={item}>{item}</div>;
+                    return <div className="stackItems" key={item} >{item}</div>;
                 })}
             </div>
-            <button style={{
-                margin: '20px',
-                background: '#f8e1ee',
-                width: '200px',
-                borderRadius: '5px',
-                padding: '10px'
-            }}
-                onClick={addToStack}>Push</button>
-            <button style={{
-                margin: '20px',
-                background: '#bbfdd8',
-                width: '200px',
-                borderRadius: '5px',
-                padding: '10px'
-            }}
-                onClick={pop} warning>
-                Pop
-            </button>
-            <p style={{
-                color: '#e84917',
-                fontSize: '20px',
-                margin: '20px'
-            }}>Top Element : {peek()}</p>
-  
-            <p style={{
-                color: '#175ce8',
-                fontSize: '20px',
-                margin: '20px'
-            }}>Stack Size : {length}</p>
-  
+            <div >
+            <button onClick={addToStack} className="buttons">Push</button>
+            <button onClick={pop} className="buttons1"> Pop </button>
+            </div>
+            <div >
+            <p className="output1" >Last element: {peek()}</p>
+            <p className="output2">Stack length : {length}</p>
+            </div>
         </>
     );
 }
+
+export default CheckStack;

@@ -1,71 +1,33 @@
 import React, { useRef } from "react";
 import { useQueueState } from "rooks";
   
-export default function App() {
-    const numberToPushRef = useRef(3);
+const CheckQueue = () => {
+    const inputsToQueue = useRef(3);
     const [list, { enqueue, dequeue, peek, 
         length }] = useQueueState([1, 2, 3]);
   
     function addToQueue() {
-        numberToPushRef.current = 
-            numberToPushRef.current + 1;
+        inputsToQueue.current = 
+            inputsToQueue.current + 1;
           
-        enqueue(numberToPushRef.current);
+        enqueue(inputsToQueue.current);
     }
   
     return (
         <>
-            <h1 style={{ color: 'blue', margin: '20px' }}>Queue</h1>
-            <div style={{
-                display: 'flex',
-                flexDirection: 'horizontal',
-                width: '400px',
-                height: '60px',
-                fontSize: '20px',
-                margin: '20px',
-                borderTop: '2px solid green',
-                borderBottom: '2px solid green'
-            }}>
+            <h1>Queue</h1>
+            <div className="queueContainer">
                 {list.map((item) => {
-                    return <div style={{
-                        width: '30px',
-                        height: '30px',
-                        background: '#a3fc9d',
-                        borderRadius: '5px',
-                        margin: '10px',
-                        textAlign: 'center'
-                    }}
-                        key={item}>{item}</div>;
+                    return <div key={item} className="queueItems">{item}</div>;
                 })}
             </div>
-            <button style={{
-                margin: '20px',
-                background: '#f69dfc',
-                width: '200px',
-                borderRadius: '5px'
-            }}
-                onClick={addToQueue}>enqueue</button>
-            <button style={{
-                margin: '20px',
-                background: '#f69dfc',
-                width: '200px',
-                borderRadius: '5px'
-            }}
-                onClick={dequeue} warning>
-                dequeue
-            </button>
-            <p style={{
-                color: '#e84917',
-                fontSize: '20px',
-                margin: '20px'
-            }}>Front Element : {peek()}</p>
-  
-            <p style={{
-                color: '#175ce8',
-                fontSize: '20px',
-                margin: '20px'
-            }}>Length of Queue : {length}</p>
+            <button onClick={addToQueue} className="buttons">enqueue</button>
+            <button onClick={dequeue} className="buttons1"> dequeue </button>
+            <p className="output1">Front Element : {peek()}</p>
+            <p className="output2">Length of Queue : {length}</p>
   
         </>
     );
 }
+
+export default CheckQueue;
